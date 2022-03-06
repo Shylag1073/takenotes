@@ -4,6 +4,7 @@ let fs =require("fs");
 let path = require("path")
 let app=express();
 let PORT = 80
+let newnotes = require('./db/db.json')
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -32,18 +33,20 @@ app.post ("/api/notes", (req ,res) => {
     res.json(notes);
 })
 
-// app.delete("/api/notes/:id", (req ,res) => {
+app.delete("/api/notes/:id", (req ,res) => {
 
-//     let newnotes = require('./db/db.json')
-// for (let i = 0; i < newnotes.length; i++) {
-//     if(newnotes[i].id == req.params.id){
-//         newnotes.splice(i, 1)
-//     }
-//     fs.writeFileSync('./db/db.json', JSON.stringify(newnotes))
-//     res.json(newnotes)
-    
-// }
-// })
+
+    console.log(newnotes)
+for (let i = 0; i < newnotes.length; i++) {
+    if(newnotes[i].id == req.params.id){
+        newnotes.splice(i, 1)
+     }
+    }
+     fs.writeFileSync('./db/db.json', JSON.stringify(newnotes))
+     res.sendFile(path.join(__dirname, "./db/db.json"));
+console.log(newnotes)
+console.log(req.params.id)
+})
 
 app.listen(process.env.PORT || PORT, () => {
     console.log('Server Running in http://localhost')
