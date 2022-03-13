@@ -40,7 +40,7 @@ npm start
 
 # Website 
 
-The URL of the GitHub repository is
+The URL of the GitHub repository is https://shylag1073.github.io/takenotes/
 
 
 # Questions 
