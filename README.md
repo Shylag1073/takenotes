@@ -30,11 +30,11 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 # Installation 
 
-# You will start with this in your terminal
+- You will start with this in your terminal
 npm init -y
-# You will install express`
+- You will install express
 npm i express
-# To start the local server 
+- To start the local server 
 npm start 
 
 
